@@ -13,13 +13,16 @@ from telepot.loop import MessageLoop
 import copy
 from binance.client import BinanceAPIException
 from locale import atoi
+import os
+from dotenv import load_dotenv
 
+load_dotenv() # Carica le variabili dal file .env
 
 
 ### CLIENTS
-binance_client = Client('API','SECRET')
-API_TOKEN = 'Token bot'         #bot username=t.me/nomeBot
-ID=000000000                    #il proprio id telegram
+binance_client = Client(os.getenv('BINANCE_API_KEY'), os.getenv('BINANCE_SECRET_KEY'))
+BOT_TOKEN = os.getenv('BOT_TOKEN')         #bot username=t.me/nomeBot
+ID=os.getenv('ID')                    #il proprio id telegram
 
 echo=1   #visualizza mess di staot su telegram
 allerta=0 #alert di btc nel caso di movimenti repentini
@@ -264,7 +267,7 @@ def put_order_mT(a,t,q,p_o,ii):            #a=asset,t=type order,q=quantity CON 
 binsizes = {"1m": 1, "5m": 5, "1h": 60, "1d": 1440}
 batch_size = 750
 
-bot = telepot.Bot(API_TOKEN)
+bot = telepot.Bot(BOT_TOKEN)
 ########
 MessageLoop(bot, {'chat': on_chat_message}).run_as_thread()
 ########
@@ -792,5 +795,4 @@ while True :
                 vai=True                
 
         storia=storia2
-    time.sleep(1) 
-            
+    time.sleep(1)
