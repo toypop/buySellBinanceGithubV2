@@ -72,6 +72,7 @@ def on_chat_message(message):
         if command=='/info':
             bot.sendMessage(ID,'*/s*:  __Vende asset__  /s  btcusdt \\>o\\< ValTrigger  Quantità @pairhook\n' 
                                       '*/b*:  __Compra asset__ /b btcusdt \\>o\\< ValTrigger  Quantità @pairhook\n'
+                                      '*/s*:  __Vende asset__ /s btcusdt \\>o\\< ValTrigger  Quantità @pairhook\n'
                                       '*/f*:  __Compra asset e rivende in trailing__ /f btcusdt \\>o\\< ValTrigger Quantita  Val%\n'
                                       '*/S*:  __Vende asset in trailing__  /S  btcusdt Val%  Quantità  Limit @pairhook\n'
                                       'Se viene inserita la pairhook ,verra venduta quella\n' 
